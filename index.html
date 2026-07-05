@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Div-calculate</title>
+    <style>
+        body {
+            background-color: rgba(83, 60, 15, 0.5);
+            display: flex;
+            justify-content: center;
+        }
+
+        .main {
+            height: 700px;
+            width: 700px;
+            background-color: rgba(180, 169, 42, 0.5);
+            border-radius: 20px;
+            box-shadow: 10px 10px 10px 10px rgba(0, 0, 0, 0.5);
+            border: 1px solid black;
+            margin-top: 5%;
+        }
+
+        .heading {
+            text-align: center;
+            font-size: 30px;
+            color: rgba(0, 0, 0, 0.5);
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            width: 100%;
+            height: 20%;
+        }
+
+        .horizontal {
+            background-color: rgba(0, 0, 0, 0.5);
+            width: 100%;
+            height: 1px;
+        }
+
+        .input-box {
+            width: 100%;
+            height: 80%;
+            text-align: center;
+        }
+
+        .num-in {
+            font-size: 20px;
+            color: rgba(0, 0, 0, 0.5);
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            margin-left: 10%;
+            margin-top: 10%;
+        }
+
+        input[type='number'] {
+            width: 30%;
+            height: 35px;
+            margin-left: 10%;
+            margin-top: 5%;
+            border-radius: 10px;
+            background-color: rgba(210, 210, 94, 0.5);
+        }
+
+        .num-submit {
+            width: 20%;
+            height: 35px;
+            background-color: rgba(172, 172, 64, 0.5);
+            color: rgba(0, 0, 0, 0.5);
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            border-radius: 10px;
+            border: 1px solid black;
+        }
+
+        .num-submit:hover {
+            background-color: rgba(28, 28, 11, 0.5);
+        }
+
+        .num-option {
+            width: 20%;
+            height: 35px;
+            background-color: rgba(172, 172, 64, 0.5);
+            color: rgba(0, 0, 0, 0.5);
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            border-radius: 10px;
+            border: 1px solid black;
+        }
+
+        .num-option:hover {
+            background-color: rgba(28, 28, 11, 0.5);
+        }
+
+        .finish {
+            width: 50%;
+            height: 60px;
+            background-color: rgba(172, 172, 64, 0.5);
+            text-align: center;
+            border-radius: 20px;
+            border: 1px solid black;
+
+
+        }
+
+        .finish:hover {
+            background-color: rgba(28, 28, 11, 0.5);
+
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="main">
+        <div class="heading">
+            <h1>Div-Calculator</h1>
+        </div>
+        <div class="horizontal"></div>
+        <div class="input-box">
+            <label class="num-in" for="num1">Enter 1st number:</label>
+            <input type="number" id="num1" name="num1">
+            <button class="num-submit" onclick="add_num1()">Submit</button>
+            <br>
+            <label class="num-in" for="num2">Enter 2nd number:</label>
+            <input type="number" id="num2" name="num2">
+            <button class="num-submit" onclick="add_num2()">Submit</button>
+            <br><br>
+            <div class="horizontal"></div>
+            <div class="options">
+                <h2>Select operation:</h2>
+                <button class="num-option" onclick="add()">Add</button>
+                <button class="num-option" onclick=" sub()">Subtract</button>
+                <button class="num-option" onclick=" mul()">Multiply</button>
+                <button class="num-option" onclick=" div()">Divide</button>
+            </div>
+            <br><br>
+
+            <div class="horizontal"></div>
+            <div class="result">
+                <h3>Option: <span id="option">-</span></h3>
+                <h2>Result: <span id="result">-</span></h2>
+            </div>
+            <button onclick="finish()" class="finish">
+                <h2>Finish</h2>
+
+            </button>
+
+        </div>
+
+
+
+    </div>
+    <script>
+
+        function checkin_num1() {
+            globalThis.num1 = document.querySelector("#num1");
+            return true;
+
+
+        }
+        function checkin_num2() {
+            globalThis.enter_num1 = document.querySelector("#num2");
+            return true;
+        }
+
+        function add_num1() {
+            globalThis.enter_num1 = checkin_num1();
+
+        }
+        function add_num2() {
+            globalThis.enter_num2 = checkin_num2();
+
+        }
+
+
+
+
+        function add() {
+
+            if (enter_num1 && enter_num2) {
+                let result = Number(num1.value) + Number(num2.value);
+                document.querySelector("#result").innerHTML = Number(result);
+                document.querySelector("#option").innerHTML = "Addition";
+            }
+            else {
+                alert("Please enter both the numbers and submit and click the operation");
+
+
+
+
+            }
+
+        }
+        function sub() {
+            if (enter_num1 && enter_num2) {
+                let result = Number(num1.value) - Number(num2.value);
+                document.querySelector("#result").innerHTML = Number(result);
+                document.querySelector("#option").innerHTML = "Subtraction";
+            }
+            else {
+
+
+                alert("Please enter both numbers and click on submit button");
+
+
+            }
+        }
+        function mul() {
+            if (enter_num1 && enter_num2) {
+
+                let result = Number(num1.value) * Number(num2.value);
+                document.querySelector("#result").innerHTML = Number(result);
+                document.querySelector("#option").innerHTML = "Multiplication";
+            }
+            else {
+                alert("Please enter both numbers and click on submit button");
+
+            }
+
+        }
+        function div() {
+            if (enter_num1 && enter_num2) {
+
+                if (num2.value == 0) {
+                    alert("Division by zero is not allowed\n So, Re-enter the 2nd number and click on submit button\n Then click on divide button");
+                    document.querySelector("#result").innerHTML = "Denominator should not be 0 !";
+                    document.querySelector("#option").innerHTML = "Division";
+
+
+                }
+                else {
+                    let result = Number(num1.value) / Number(num2.value);
+                    document.querySelector("#result").innerHTML = Number(result);
+                    document.querySelector("#option").innerHTML = "Division";
+
+
+                }
+            }
+            else {
+                alert("Please enter both numbers and click on submit button");
+
+            }
+        }
+        function finish() {
+            alert("Thank You for using Div-calculator");
+        }
+
+
+
+
+    </script>
+
+
+
+</body>
+
+</html>
